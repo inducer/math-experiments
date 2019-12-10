@@ -67,7 +67,7 @@
   By plugging our value for <math|b<rsub|n+1>> from above, we find:
 
   <\equation*>
-    \<Delta\>b<rsub|n>=b<rsub|n+1>-b<rsub|n>=b<rsub|n>\<cdot\>r\<cdot\>\<Delta\>t
+    \<Delta\>b<rsub|n><space|1em>=<space|1em>b<rsub|n+1>-b<rsub|n><space|1em>=<space|1em>b<rsub|n>\<cdot\>r\<cdot\>\<Delta\>t
   </equation*>
 
   and, on dividing through by <math|\<Delta\>t>, we find
