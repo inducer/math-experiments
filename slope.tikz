@@ -1,0 +1,26 @@
+\def\scale{1.5}
+\def\fa{1.03*\scale}
+\def\fb{1.05*\scale}
+\def\fc{1.1*\scale}
+\def\fd{1.3*\scale}
+\def\fe{1.8*\scale}
+\def\ff{2.6*\scale}
+
+\begin{tikzpicture}[scale=0.8]
+  \draw [thick,->] (-0.5,0) -- (5,0) ;
+  \draw [thick,->] (0,-0.5) -- (0,5) ;
+  \foreach \i in {1,2,...,4}
+    \draw (\i,-0.1) -- ++(0,0.2) node [pos=0,anchor=north] {$\i\Delta t$};
+  \foreach \i in {1,2,...,4}
+    \draw (-0.1,\i) -- ++(0.2,0) node [pos=0,anchor=east] {$\i$};
+  \draw (0,\fa) -- (1,\fb) -- (2,\fc) -- (3,\fd) -- (4,\fe) -- (5,\ff) ;
+  \foreach \x/\y in {1/\fb,2/\fc,3/\fd,4/\fe}
+  {
+    \fill (\x,\y) circle (1.5pt);
+  }
+  \draw [dotted] (3,0) -- ++(0,\fd);
+  \draw [dotted] (4,0) -- ++(0,\fe);
+  \draw (3,\fd) -- ++(1,0) node [pos=0.5,anchor=north] {$\Delta t$};
+  \draw (4,\fd) -- ++(0,\fe-\fd) node [pos=0.5,anchor=west] {$\Delta b_3=b_4-b_3$};
+
+\end{tikzpicture}

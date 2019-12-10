@@ -9,33 +9,31 @@
   <math|b>. But since <math|b> changes in time, we need to make clear
   <em|which> balance we mean.\ 
 
-  [<with|font-series|bold|Alternative 1>]
-
   So let <math|b<rsub|now>> be the balance at the current moment, and
   <math|b<rsub|next>> be the balance after one cycle of adding interest. Then
   the process of adding interest can be described as
 
   <\equation*>
-    b<rsub|next>=b<rsub|now>\<cdot\><around*|(|1+r|)>.
+    b<rsub|next>=b<rsub|now>+b<rsub|now>r.
   </equation*>
 
-  [<with|font-series|bold|Alternative 2>] In fact, we can number the instants
-  at which the balance changes. Let the instant <math|n=0> be the beginning
-  of the interest calculation, <math|n=1> be the instant after the first
-  interest compounding, and so on. Then the process of adding interest can be
-  described as
+  But since \<#2018\>now\<#2019\> and \<#2018\>next\<#2019\> can refer to
+  many different points in time, it is perhaps better to number the points in
+  time, by introducing <math|b<rsub|0>>, <math|b<rsub|1>>, <math|b<rsub|2>>,
+  and so on:
+
+  <\eqnarray*>
+    <tformat|<table|<row|<cell|b<rsub|0>>|<cell|=>|<cell|<text|Initial
+    Balance>>>|<row|<cell|b<rsub|1>>|<cell|=>|<cell|b<rsub|0>+b<rsub|0>\<cdot\>r>>|<row|<cell|b<rsub|2>>|<cell|=>|<cell|b<rsub|1>+b<rsub|1>\<cdot\>r>>|<row|<cell|>|<cell|\<vdots\>>|<cell|>>>>
+  </eqnarray*>
+
+  More generally, we can say
 
   <\equation*>
-    b<rsub|n+1>=b<rsub|n>\<cdot\><around*|(|1+r|)>
+    b<rsub|n+1>=b<rsub|n>+b<rsub|n>\<cdot\>r
   </equation*>
 
   for all <math|n>: 0, 1, 2, <math|\<ldots\>>.\ 
-
-  [<with|font-series|bold|End Alternatives>; I would welcome feedback on
-  which of the two is more suitable. I've chosen Alternative<nbsp>2 for
-  what's below because it is more systematic but perhaps a bit more
-  complicated. If you think Alternative<nbsp>1 is preferable, what's below
-  needs to be changed to match.]
 
   If we change the interval at which interest is compounded from a year to
   another period, the amount of interest changes proportionally. So if the
@@ -45,23 +43,31 @@
   our rule above to
 
   <\equation*>
-    b<rsub|n+1>=b<rsub|n>\<cdot\><around*|(|1+r\<cdot\>\<Delta\>t|)>.
+    b<rsub|n+1>=b<rsub|n>+b<rsub|n>\<cdot\>r\<cdot\>\<Delta\>t.
   </equation*>
 
   We have seen that the amount of money after a year (say) differs depending
-  on whether interest is compounded once or twice a year. Let's see if we can
-  identify a pattern that nonetheless stays the same. To do that, let us
-  introduce a shorter way of writing the amount of money <em|added> each time
-  interest is computed:
+  on <math|\<Delta\>t>, that is, depending on whether (say) interest is
+  compounded once or twice a year. Let's see if we can identify a pattern
+  that nonetheless stays the same.
+
+  To understand what happens as we vary <math|\<Delta\>t>, we will start
+  viewing the balances at different times more like a function of time, like
+  in the following figure:
+
+  <image|slope.pdf|171pt|129pt||>
+
+  We will also introduce a shorter way of writing the amount of money
+  <em|added> each time interest is computed:
 
   <\equation*>
     \<Delta\>b<rsub|n>=b<rsub|n+1>-b<rsub|n>.
   </equation*>
 
-  We can then plug in the above:
+  By plugging our value for <math|b<rsub|n+1>> from above, we find:
 
   <\equation*>
-    \<Delta\>b<rsub|n>=b<rsub|n>\<cdot\><around*|(|1+r\<cdot\>\<Delta\>t|)>-b<rsub|n>=b<rsub|n>\<cdot\>r\<cdot\>\<Delta\>t
+    \<Delta\>b<rsub|n>=b<rsub|n+1>-b<rsub|n>=b<rsub|n>\<cdot\>r\<cdot\>\<Delta\>t
   </equation*>
 
   and, on dividing through by <math|\<Delta\>t>, we find
@@ -70,16 +76,22 @@
     <frac|\<Delta\>b<rsub|n>|\<Delta\>t>=b<rsub|n>\<cdot\>r.
   </equation*>
 
-  The quantity on the left is a <em|difference quotient>, which represents
-  the <em|slope> of a function. So if we start viewing the amount of money
-  over time as a function <math|b<around*|(|t|)>> rather than as a (discrete)
-  sequence of values <math|b<rsub|n>>, then we have found what stays common
-  across all different choices of the compounding interval is that
+  The quantity on the left is a <em|difference quotient>, which represents a
+  <em|slope>. You can see the triangle indicating <em|rise over run> in the
+  figure above.
+
+  As a result, we have found a pattern that stays the same no matter what
+  <math|\<Delta\>t> we choose:
 
   <\quote-env>
-    The slope of the balance <math|b<around*|(|t|)>> (at the time of
-    compounding) is always <math|b<around*|(|t|)>\<cdot\>r>.
+    The slope of the balance <math|b> (at the time of compounding) is always
+    <math|b\<cdot\>r>.
   </quote-env>
+
+  As we progress in the class, we will see many more relationships of this
+  type, where the <em|slope> of some quantity (here the balance) is related
+  to the quantity itself. It turns out that many things in nature can be
+  accurately described this way.
 </body>
 
 <\initial>
